@@ -1,0 +1,53 @@
+﻿<ContentDialog
+    x:Class="wijkagent.Views.Add_Suspect"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:wijkagent.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Verdachte toevoegen">
+
+        <Grid Height="300" Width="600">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock FontSize="20" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"  HorizontalAlignment="Left"  Text="Leeftijd"></TextBlock>
+            <TextBlock Grid.Row="1" FontSize="20" Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Left"   Text="Lengte in cm"></TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="Huidskleur"></TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="Gender"></TextBlock>
+
+            <TextBox x:Name="In_Age"  FontSize="20" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"  HorizontalAlignment="Left"  PlaceholderText="Leeftijd"/>
+            <TextBox Name="In_Length" Grid.Row="1" FontSize="20" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left"  PlaceholderText="Lengte in cm"/>
+            <TextBox Name="In_SkinColor" Grid.Column="1" Grid.Row="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"  PlaceholderText="Huidskleur"/>
+            <ComboBox Grid.Column="1" Name="In_Gender" Grid.Row="3"  FontSize="20"  VerticalAlignment="Center" HorizontalAlignment="Left"  PlaceholderText="Gender">
+                <ComboBoxItem>Man</ComboBoxItem>
+                <ComboBoxItem>Vrouw</ComboBoxItem>
+                <ComboBoxItem>Anders</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Content="Toevoegen"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="Toevoegen" />
+                <Grid Grid.Row="4" Grid.Column="1">
+                    <Button Content="Annuleren" Click="Annuleren"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+</ContentDialog>

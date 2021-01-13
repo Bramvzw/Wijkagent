@@ -1,0 +1,122 @@
+﻿<Page
+    x:Class="wijkagent.Views.Opmerkingen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:wijkagent.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#3269a8">
+            <TextBlock Text="Overzicht" FontSize="40" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                    
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,0,1">
+                    <Button Content="Verdachte(n)" Width="300" FontSize="25" HorizontalAlignment="Center" Click="Add_Supects"></Button>
+                </Grid>
+                <Grid Grid.Row="2" BorderBrush="Black" BorderThickness="0,0,0,1">
+                    <ScrollViewer>
+                        <ListView  Name="Suspect_Listview">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Click="UpdateSuspect">
+                                        <TextBlock>
+                                    <Run Text="Leeftijd: "/>
+                                    <Run FontWeight="SemiBold" Text="{Binding In_Age}"/>
+                                    <Run Text="Lengte: "/>
+                                    <Run FontWeight="SemiBold" Text="{Binding In_Length}"/>
+                                    <Run Text="Huidskleur: "/>
+                                    <Run FontWeight="SemiBold" Text="{Binding In_SkinColor}"/>
+                                    <Run Text="Gender: "/>
+                                    <Run FontWeight="SemiBold" Text="{Binding In_Gender}"/>
+                                        </TextBlock>
+                                    </Button>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="2"  BorderBrush="Black" BorderThickness="1,0,1,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Width="300" Content="Tijd en locatie van delict" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Click="Add_Times"/>
+                <Grid Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                    <ScrollViewer>
+                        <ListView x:Name="Time_Listview">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Click="UpdateTime">
+                                        <TextBlock>
+                                    <Run Text="Tijd: "/>
+                                    <Run FontWeight="SemiBold" Text="{Binding In_Date}"/>
+                                    <Run Text="Locatie: "/>
+                                    <Run FontWeight="SemiBold" Text="{Binding In_Location}"/>
+                                            
+                                        </TextBlock>
+                                    </Button>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="0,0,1,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,0" >
+                    <Button Width="300" Content="Voertuig(en)" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Click="Add_Vehicles"/>
+                </Grid>
+                <Grid Grid.Row="2" BorderBrush="Black"  BorderThickness="0,1,0,1">
+                    <ScrollViewer>
+                        <ListView x:Name="Vehicle_Listview">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Click="UpdateVehicle">
+                                        <TextBlock>
+                                    <Run Text="Plaat: "/>
+                                    <Run FontWeight="SemiBold" Text="{Binding In_Plate}"/>
+                                    <Run Text="Kleur: "/>
+                                    <Run FontWeight="SemiBold" Text="{Binding In_Color}"/>
+                                    <Run Text="Merk: "/>
+                                    <Run FontWeight="SemiBold" Text="{Binding In_Brand}"/>
+                                        </TextBlock>
+                                    </Button>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Toevoegen" FontSize="30" Click="Toevoegen"/>
+        </Grid>
+    </Grid>
+</Page>
